@@ -156,7 +156,7 @@ export default function CountryStatsPage() {
 
   return (
     <div style={{ padding: '1rem' }}>
-      <h1>Country Statistics</h1>
+      <h1>Country Statistics for English Speaking Programmer</h1>
 
       <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', marginBottom: '0.75rem' }}>
         <input
