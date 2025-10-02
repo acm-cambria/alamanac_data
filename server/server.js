@@ -7,6 +7,7 @@ const path = require('path');
 const distPath = path.join(__dirname, '..', 'client', 'dist');
 
 const app = express();
+// app.use(cors());
 app.use(cors({
   origin: (process.env.CORS_ORIGIN || '*')
     .split(',')

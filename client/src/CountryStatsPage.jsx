@@ -182,7 +182,7 @@ export default function CountryStatsPage() {
 
       <div style={{ overflow: 'auto', border: '1px solid #e5e7eb', borderRadius: 8 }}>
         <table style={{ borderCollapse: 'separate', borderSpacing: 0, width: '100%', fontSize: 14 }}>
-          <thead style={{ position: 'sticky', top: 0, background: '#1471ceff', zIndex: 1 }}>
+          <thead style={{ position: 'sticky', top: 0, background: '#F5A7A6', zIndex: 1 }}>
             <tr>
               {COLUMNS.map(col => {
                 const isSorted = sort.key === col.key;
@@ -192,6 +192,7 @@ export default function CountryStatsPage() {
                     onClick={() => onSort(col.key)}
                     style={{
                       position: 'sticky',
+                      color: 'black',
                       top: 0,
                       textAlign: col.align || 'left',
                       fontWeight: 600,
@@ -217,7 +218,7 @@ export default function CountryStatsPage() {
               <tr><td colSpan={COLUMNS.length} style={{ padding: '1rem' }}>No data</td></tr>
             ) : (
               pageRows.map((row, i) => (
-                <tr key={i} style={{ background: i % 2 ? '#4444e7ff' : 'rgba(16, 55, 94, 0.27)' }}>
+                <tr key={i} style={{ background: i % 2 ? '#D5D1E9' : '#DDE4EE' }}>
                   {COLUMNS.map(col => (
                     <td
                       key={col.key}
@@ -225,7 +226,8 @@ export default function CountryStatsPage() {
                         textAlign: col.align || 'left',
                         padding: '8px 12px',
                         borderBottom: '1px solid #f1f5f9',
-                        whiteSpace: 'nowrap'
+                        whiteSpace: 'nowrap',
+                        color: 'black'
                       }}
                     >
                       {renderCell(row, col)}
