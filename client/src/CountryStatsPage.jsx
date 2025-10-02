@@ -164,15 +164,15 @@ export default function CountryStatsPage() {
           onChange={(e) => { setQ(e.target.value); setPage(1); }}
           placeholder="Search by country name…"
           aria-label="Search by country name"
-          style={{ padding: '0.5rem', minWidth: 260 }}
+          style={{ padding: '0.5rem', minWidth: 260, backgroundColor: '#D5D1E9', color: '#000000' }}
         />
         <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           Page size:
-          <select value={pageSize} onChange={(e) => { setPageSize(Number(e.target.value)); setPage(1); }}>
+          <select value={pageSize} onChange={(e) => { setPageSize(Number(e.target.value)); setPage(1); }} style={{backgroundColor: '#D5D1E9', color: '#000000'}}> 
             {[10, 25, 50, 100].map(n => <option key={n} value={n}>{n}</option>)}
           </select>
         </label>
-        <button onClick={downloadCsv} type="button">Download CSV</button>
+        <button onClick={downloadCsv} type="button" style={{ backgroundColor: '#D5D1E9', color: '#000000'}}>Download CSV</button>
         <div style={{ marginLeft: 'auto' }}>
           {loading ? 'Loading…' : `${sorted.length.toLocaleString()} rows`}
         </div>
@@ -192,7 +192,7 @@ export default function CountryStatsPage() {
                     onClick={() => onSort(col.key)}
                     style={{
                       position: 'sticky',
-                      color: 'black',
+                      color: '#000000',
                       top: 0,
                       textAlign: col.align || 'left',
                       fontWeight: 600,
@@ -211,7 +211,7 @@ export default function CountryStatsPage() {
               })}
             </tr>
           </thead>
-          <tbody>
+          <tbody style={{overflow: 'auto'}}>
             {loading ? (
               <tr><td colSpan={COLUMNS.length} style={{ padding: '1rem' }}>Loading…</td></tr>
             ) : pageRows.length === 0 ? (
@@ -227,7 +227,7 @@ export default function CountryStatsPage() {
                         padding: '8px 12px',
                         borderBottom: '1px solid #f1f5f9',
                         whiteSpace: 'nowrap',
-                        color: 'black'
+                        color: '#000000'
                       }}
                     >
                       {renderCell(row, col)}
@@ -241,9 +241,9 @@ export default function CountryStatsPage() {
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 12 }}>
-        <button type="button" onClick={() => setPage(p => Math.max(1, p - 1))} disabled={currentPage === 1}>‹ Prev</button>
+        <button type="button" style={{ backgroundColor: '#D5D1E9', color: '#000000'}} onClick={() => setPage(p => Math.max(1, p - 1))} disabled={currentPage === 1}>‹ Prev</button>
         <span>Page {currentPage} of {pageCount}</span>
-        <button type="button" onClick={() => setPage(p => Math.min(pageCount, p + 1))} disabled={currentPage === pageCount}>Next ›</button>
+        <button type="button" style={{ backgroundColor: '#D5D1E9', color: '#000000'}} onClick={() => setPage(p => Math.min(pageCount, p + 1))} disabled={currentPage === pageCount}>Next ›</button>
       </div>
     </div>
   );
